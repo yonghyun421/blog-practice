@@ -15,6 +15,7 @@ function App() {
   ]);
 
   const [like, setLike] = useState(0);
+  const [modal, setModal] = useState(false);
 
   // 일반 변수는 갑자기 변경되면 Html에 자동으로 반영 안됨.
   // state는 갑자기 변경되면 state 쓰던 html은 자동 재렌더링됨.
@@ -46,10 +47,10 @@ function App() {
         <p>{date[1]}</p>
       </div>
       <div className="list">
-        <h4>{title[2]}</h4>
+        <h4 onClick={() => setModal(!modal)}>{title[2]}</h4>
         <p>{date[2]}</p>
       </div>
-      <Modal />
+      {modal == true ? <Modal /> : null}
     </div>
   );
 }

@@ -30,11 +30,29 @@ function App() {
     setTitle(["여자 코트 추천", ...title]);
   };
 
+  const changeOrder = () => {
+    let newTitle = [...title];
+    setTitle(newTitle.sort());
+  };
+
   return (
     <div className="App">
       <div className="black-nav">
         <h4>ReactBlog</h4>
       </div>
+
+      <button onClick={changeOrder}>정렬</button>
+
+      <button
+        onClick={() => {
+          let copy = [...title];
+          copy[0] = "여자 코트 추천";
+          setTitle(copy);
+        }}
+      >
+        글수정
+      </button>
+
       <div className="list">
         <h4 onClick={changeTitle}>
           {title[0]} <span onClick={clickLike}>👍🏻</span>

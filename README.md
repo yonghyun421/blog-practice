@@ -1,3 +1,7 @@
+# now
+
+-
+
 # React Blog Practice
 
 어떤걸 컴포넌트로 만들면 좋은가
@@ -16,3 +20,8 @@
 1. html css로 미리 디자인 완성
 2. UI의 현재 상태를 state로 저장
 3. state에 따라 UI가 어떻게 보일지 작성
+
+arr/object 특징
+
+- array/object 담은 변수엔 화살표만 저장됨.
+- state가 array/object면 shallow copy를 만들어서 수정해야함.

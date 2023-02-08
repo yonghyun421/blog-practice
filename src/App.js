@@ -22,12 +22,15 @@ function App() {
 
   // 자주 변경될거 같은 html 부분은 state로 만들어 놓기.
 
-  const clickLike = () => {
-    setLike(like + 1);
-  };
+  // const clickLike = () => {
+  //   setLike(like + 1);
+  // };
 
   const changeTitle = () => {
-    setTitle(["여자 코트 추천", ...title]);
+    // setTitle(["여자 코트 추천", ...title]);
+    let copy = [...title];
+    copy[0] = "여자 코트 추천";
+    setTitle(copy);
   };
 
   const changeOrder = () => {
@@ -53,32 +56,51 @@ function App() {
         글수정
       </button>
 
-      <div className="list">
+      {title.map((e, i) => {
+        return (
+          <div className="list">
+            <h4
+              onClick={() => {
+                setModal(!modal);
+              }}
+            >
+              {title[i]}
+            </h4>
+            <p>{date[0]}</p>
+          </div>
+        );
+      })}
+      {/* <div className="list">
         <h4 onClick={changeTitle}>
           {title[0]} <span onClick={clickLike}>👍🏻</span>
           {like}
         </h4>
         <p>{date[0]}</p>
       </div>
+
       <div className="list">
         <h4>{title[1]}</h4>
         <p>{date[1]}</p>
-      </div>
-      <div className="list">
+      </div> */}
+
+      {/* <div className="list">
         <h4 onClick={() => setModal(!modal)}>{title[2]}</h4>
         <p>{date[2]}</p>
-      </div>
-      {modal == true ? <Modal /> : null}
+      </div> */}
+      {modal == true ? (
+        <Modal title={title} color={"skyblue"} changeTitle={changeTitle} />
+      ) : null}
     </div>
   );
 }
 
-const Modal = () => {
+const Modal = (props) => {
   return (
-    <div className="modal">
-      <h4>제목</h4>
+    <div className="modal" style={{ backgroundColor: props.color }}>
+      <h4>{props.title[0]}</h4>
       <p>날짜</p>
       <p>상세내용</p>
+      <button onClick={props.changeTitle}>글수정</button>
     </div>
   );
 };

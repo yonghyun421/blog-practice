@@ -1,6 +1,6 @@
-# now
+# index
 
--
+- props를 응용한 상세페이지 만들기
 
 # React Blog Practice
 
@@ -25,3 +25,9 @@ arr/object 특징
 
 - array/object 담은 변수엔 화살표만 저장됨.
 - state가 array/object면 shallow copy를 만들어서 수정해야함.
+
+부모 => 자식 state 전송하는 법.
+
+1. <자식컴포넌트 작명 = { state이름 }>
+2. props 파라미터 등록 후 props.작명 사용
+3. props 전송은 부모에서 -> 자식으로만 가능
